@@ -11,7 +11,6 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     @auth
-                    @if(Auth::check())
                         <li class="nav-item">
                             <a href="{{ route('user.cakes.index') }}" class="nav-link">
                                 <i class="fas fa-birthday-cake"></i> Catálogo
@@ -58,7 +57,7 @@
                                 <i class="fas fa-user-plus"></i> Registrarse
                             </a>
                         </li>
-                    @endif
+                    @endauth
                 </ul>
             </div>
         </div>
