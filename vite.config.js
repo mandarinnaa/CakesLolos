@@ -2,44 +2,19 @@ import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 
 export default defineConfig({
-    // Configuración esencial para producción
-    base: '/build/', // ¡Clave para que funcionen los assets en producción!
-    
-    // Configuración del servidor (solo desarrollo)
-    server: {
-        host: '0.0.0.0',
-        hmr: {
-            host: 'localhost',
-            protocol: 'ws'
-        }
-    },
-
+    base: '/build/', // ¡Esto es esencial para producción!
     plugins: [
         laravel({
             input: [
                 'resources/css/app.css',
-                'resources/css/admin.css',
-                'resources/css/editor.css',
-                'resources/css/messages.css',
                 'resources/js/app.js'
             ],
-            refresh: [
-                'resources/views/**',
-                'routes/**'
-            ]
-        })
+            refresh: true
+        }),
     ],
-
-    // Optimización para producción
-        build: {
-        manifest: true,
+    build: {
         outDir: 'public/build',
-        rollupOptions: {
-            output: {
-                entryFileNames: 'assets/[name].[hash].js',
-                assetFileNames: 'assets/[name].[hash][extname]'
-            }
-        }
+        manifest: true,
+        emptyOutDir: true
     }
-
 });
