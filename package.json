@@ -1,6 +1,7 @@
 {
     "private": true,
     "scripts": {
+          "start": "vite preview --port 8080",
         "dev": "vite",
         "build": "vite build"
     },
