@@ -2,6 +2,12 @@
 
 @section('content')
 
+<head>
+    <title>Dashboard - Lolo's Cake</title>
+    @vite(['resources/css/admin.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
 <div class="animate__animated animate__fadeIn">
     <br>
     <br>
