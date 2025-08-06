@@ -31,29 +31,15 @@ export default defineConfig({
     ],
 
     // Optimización para producción
-    build: {
+        build: {
+        manifest: true,
         outDir: 'public/build',
-        emptyOutDir: true, // Limpia el directorio en cada build
-        manifest: true, // Genera manifest.json
         rollupOptions: {
             output: {
-                entryFileNames: 'assets/js/[name].[hash].js',
-                chunkFileNames: 'assets/js/[name].[hash].js',
-                assetFileNames: ({ name }) => {
-                    if (/\.(css|scss)$/.test(name ?? '')) {
-                        return 'assets/css/[name].[hash][extname]';
-                    }
-                    return 'assets/[name].[hash][extname]';
-                }
+                entryFileNames: 'assets/[name].[hash].js',
+                assetFileNames: 'assets/[name].[hash][extname]'
             }
         }
-    },
-
-    // Resolución de paths
-    resolve: {
-        alias: {
-            '@': '/resources/js',
-            '~bootstrap': 'bootstrap/dist/js/bootstrap.bundle.min.js'
-        }
     }
+
 });
