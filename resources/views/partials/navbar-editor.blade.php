@@ -1,5 +1,5 @@
 @if(Auth::check() && Auth::user()->role === 'editor')
-    @vite(['resources/css/editor-navbar.css'])
+    @vite(['resources/css/editor.css'])
 
 <nav class="navbar-admin">
     <div class="navbar-admin-container">
