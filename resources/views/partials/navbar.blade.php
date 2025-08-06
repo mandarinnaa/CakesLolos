@@ -1,6 +1,4 @@
 @if(Auth::check() && (Auth::user()->role === 'admin' || Auth::user()->role === 'editor'))
-       @vite(['resources/css/app.css'])
-
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
