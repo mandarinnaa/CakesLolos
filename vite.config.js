@@ -2,36 +2,29 @@ import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 
 export default defineConfig({
-    base: '/build/', // ¡Clave para producción!
     plugins: [
         laravel({
             input: [
-                'resources/css/app.css',
-                'resources/css/admin.css',
-                'resources/css/editor.css',
-                'resources/css/messages.css',
+                'resources/css/admin-navbar.css',
+                'resources/css/editor-navbar.css',
+                'resources/css/main-navbar.css',
                 'resources/js/app.js'
             ],
-            refresh: [
-                'resources/views/**',
-                'app/Http/Controllers/**'
-            ]
-        })
+                        refresh: true,
+        }),
     ],
     build: {
-        outDir: 'public/build',
-        emptyOutDir: true,
         manifest: true,
         rollupOptions: {
             output: {
-                assetFileNames: (assetInfo) => {
-                    const extType = assetInfo.name.split('.').at(1);
-                    if (extType === 'css') {
+assetFileNames: (assetInfo) => {
+                    let extType = assetInfo.name.split('.').at(1);
+                    if (/css|sass|scss|less|styl/i.test(extType)) {
                         return 'assets/css/[name].[hash][extname]';
                     }
                     return 'assets/[name].[hash][extname]';
-                }
-            }
-        }
-    }
+                },
+            },
+        },
+    },
 });
