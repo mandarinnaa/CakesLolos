@@ -2179,8 +2179,8 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
-    width: 100%;
-    height: 100%;
+    width: 150%;
+    height: 150%;
 }
 
 .navbar-admin-brand {
@@ -2201,7 +2201,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-admin-title {
-    color: white;
+    color: rgb(14, 13, 13);
     font-family: 'Cookie', cursive;
     font-size: 1.8rem;
     font-weight: 400;
