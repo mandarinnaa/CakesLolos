@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <style>
-
 :root {
     --nucita-cream: #FFDE7D;
     --nucita-blush: #FFDE7D;
@@ -33,18 +32,6 @@
     --nucita-light: var(--nucita-blanco);
     --nucita-text: var(--texto-oscuro);
 }
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--nucita-blanco);
-    color: var(--texto-oscuro);
-    line-height: 1.6;
-    padding-top: 180px; /* Aumenta este valor */
-    min-height: 100vh; /* Asegura que el body ocupe al menos toda la pantalla */
-}
-.main-content {
-    margin-top: 100px;
-    padding: 20px;
-}
 
 .navbar-admin {
     background: linear-gradient(135deg, var(--nucita-rose), var(--nucita-berry));
@@ -55,7 +42,7 @@ body {
     left: 0;
     right: 0;
     z-index: 1030;
-    height: 150px;
+    height: 70px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -401,6 +388,12 @@ body {
     }
 }
 
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--nucita-blanco);
+    color: var(--texto-oscuro);
+    line-height: 1.6;
+}
 
 @keyframes float {
     0%, 100% { transform: translateY(0); }
@@ -761,8 +754,6 @@ textarea.nucita-form-control {
 .nucita-form-control[type="file"]::file-selector-button:hover {
     background-color: var(--nucita-amarillo);
 }
-
-
 </style>
 </head>
 <body>
