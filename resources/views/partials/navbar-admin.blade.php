@@ -758,12 +758,6 @@ textarea.nucita-form-control {
     
     <nav class="navbar-admin">
     <div class="navbar-admin-container">
-        <div class="navbar-admin-brand">
-            <a href="{{ route('admin.dashboard') }}">
-                <img src="{{ asset('images/Log.png') }}" alt="Logo Lolo's Cake" class="navbar-admin-logo">
-                <span class="navbar-admin-title">Lolo's Cake Admin</span>
-            </a>
-        </div>
         
         <button class="navbar-admin-toggler" type="button" id="navbarAdminToggle">
             <i class="fas fa-bars"></i>
