@@ -1,5 +1,15 @@
 @if(Auth::check() && (Auth::user()->role === 'admin' || Auth::user()->role === 'editor'))
-    @vite(['resources/css/admin.css'])
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title', 'Lolos Cake')</title>
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    @if(Auth::user()->role === 'admin')
+        @vite(['resources/css/admin.css', 'resources/js/app.js'])
+    @elseif(Auth::user()->role === 'editor')
+        @vite(['resources/css/editor.css', 'resources/js/app.js'])
+    @endif
+</head>
 <nav class="navbar-admin">
     <div class="navbar-admin-container">
         <div class="navbar-admin-brand">
