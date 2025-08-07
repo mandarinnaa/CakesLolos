@@ -982,6 +982,8 @@ textarea.nucita-form-control {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Cookie&display=swap" rel="stylesheet">
 
 </head>
+@endif
+
 <nav class="navbar-admin">
     <div class="navbar-admin-container">
         <div class="navbar-admin-brand">
@@ -1094,4 +1096,3 @@ textarea.nucita-form-control {
     }
 });
 </script>
-@endif
