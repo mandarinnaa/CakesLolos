@@ -5,19 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Lolos Cake')</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
-    {{-- Tu CSS de Vite --}}
-    @if(Auth::check())
-        @if(Auth::user()->role === 'admin')
-            @vite(['resources/css/admin.css', 'resources/js/app.js'])
-        @elseif(Auth::user()->role === 'editor')
-            @vite(['resources/css/editor.css', 'resources/js/app.js'])
-        @else
-            @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @endif
-    @else
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @endif
-
     {{-- CSS externos que no tienen nada que ver con Vite --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
