@@ -600,6 +600,380 @@ textarea.nucita-form-control {
 .nucita-form-control[type="file"]::file-selector-button:hover {
     background-color: var(--nucita-amarillo);
 }
+
+
+
+
+.navbar-admin {
+    background: linear-gradient(135deg, var(--nucita-rose), var(--nucita-berry));
+    padding: 1.5rem 2rem; /* Aumentado para la nueva altura */
+    box-shadow: 0 4px 20px rgba(255, 133, 162, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    height: 150px; /* Altura aumentada */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center; /* Centrado vertical */
+}
+
+.navbar-admin-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+/* Aumentamos el tamaño del logo y título */
+.navbar-admin-brand {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.navbar-admin-brand:hover {
+    transform: scale(1.02);
+}
+
+.navbar-admin-logo {
+    height: 60px; /* Aumentado de 40px */
+    margin-right: 15px; /* Aumentado */
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(166, 45, 84, 0.2));
+}
+
+.navbar-admin-title {
+    color: white;
+    font-family: 'Cookie', cursive;
+    font-size: 2.4rem; /* Aumentado de 1.8rem */
+    font-weight: 400;
+    text-decoration: none;
+    text-shadow: 1px 1px 3px rgba(166, 45, 84, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Ajustamos el toggler para móviles */
+.navbar-admin-toggler {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem; /* Aumentado */
+    cursor: pointer;
+    padding: 0.8rem; /* Aumentado */
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar-admin-toggler:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+/* Contenido del navbar */
+.navbar-admin-collapse {
+    display: flex;
+    flex-basis: auto;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* Menú de navegación con elementos más grandes */
+.navbar-admin-nav {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0 0 0 2rem;
+    padding: 0;
+    height: 100%;
+}
+
+.navbar-admin-nav .nav-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 0 0.8rem; /* Aumentado */
+}
+
+.navbar-admin-nav .nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 1rem 1.5rem; /* Aumentado */
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 1.1rem; /* Aumentado */
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar-admin-nav .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px; /* Aumentado */
+    background-color: var(--nucita-blush);
+    transition: all 0.3s ease;
+}
+
+.navbar-admin-nav .nav-link:hover::before {
+    width: 70%;
+}
+
+.navbar-admin-nav .nav-link i {
+    margin-right: 10px; /* Aumentado */
+    font-size: 1.4rem; /* Aumentado */
+    transition: all 0.3s ease;
+}
+
+.navbar-admin-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.navbar-admin-nav .nav-link:hover i {
+    transform: scale(1.15);
+    color: var(--nucita-blush);
+}
+
+/* Dropdown de usuario más grande */
+.navbar-admin-user {
+    margin-left: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.user-dropdown {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.user-dropdown-toggle {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem; /* Aumentado */
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    height: 100%;
+}
+
+.user-dropdown-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.user-dropdown-toggle i:first-child {
+    margin-right: 10px; /* Aumentado */
+    font-size: 1.8rem; /* Aumentado */
+    transition: transform 0.5s ease;
+}
+
+.user-dropdown-toggle i:last-child {
+    margin-left: 8px; /* Aumentado */
+    font-size: 1.2rem; /* Aumentado */
+    transition: all 0.3s ease;
+}
+
+.user-dropdown:hover .user-dropdown-toggle i:last-child {
+    transform: rotate(180deg);
+}
+
+.user-dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(166, 45, 84, 0.15);
+    min-width: 220px; /* Aumentado */
+    padding: 0.8rem 0; /* Aumentado */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    border: 1px solid var(--nucita-blush);
+}
+
+.user-dropdown:hover .user-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.user-dropdown-item {
+    color: var(--nucita-text);
+    text-decoration: none;
+    padding: 1rem 1.8rem; /* Aumentado */
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    font-size: 1.1rem; /* Aumentado */
+}
+
+.user-dropdown-item i {
+    margin-right: 12px; /* Aumentado */
+    width: 24px; /* Aumentado */
+    text-align: center;
+    color: var(--nucita-berry);
+    font-size: 1.3rem; /* Aumentado */
+}
+
+.user-dropdown-item:hover {
+    background-color: var(--nucita-cream);
+    color: var(--nucita-berry);
+    padding-left: 2rem; /* Aumentado */
+}
+
+/* Animaciones */
+@keyframes wave {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.navbar-admin-nav .nav-link:hover {
+    animation: wave 0.6s ease;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .navbar-admin {
+        padding: 1.2rem 1.5rem;
+    }
+    
+    .navbar-admin-nav .nav-link {
+        padding: 0.8rem 1.2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar-admin-toggler {
+        display: block;
+    }
+    
+    .navbar-admin-collapse {
+        position: fixed;
+        top: 150px; /* Ajustado a la nueva altura */
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, var(--nucita-berry), var(--nucita-mocha));
+        flex-direction: column;
+        height: auto;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 10px 25px rgba(166, 45, 84, 0.2);
+    }
+    
+    .navbar-admin-collapse.show {
+        max-height: 500px;
+        padding: 1.5rem 0; /* Aumentado */
+    }
+    
+    .navbar-admin-nav {
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+    }
+    
+    .navbar-admin-nav .nav-item {
+        margin: 0.5rem 1.5rem; /* Aumentado */
+    }
+    
+    .navbar-admin-nav .nav-link {
+        padding: 1rem 1.5rem; /* Aumentado */
+        font-size: 1.2rem; /* Aumentado */
+    }
+    
+    .navbar-admin-user {
+        width: 100%;
+        padding: 1.5rem; /* Aumentado */
+        border-top: 1px dashed rgba(255, 255, 255, 0.3);
+    }
+    
+    .user-dropdown {
+        width: 100%;
+    }
+    
+    .user-dropdown-toggle {
+        width: 100%;
+        justify-content: space-between;
+        font-size: 1.2rem; /* Aumentado */
+    }
+    
+    .user-dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+        display: none;
+        margin-top: 0.8rem; /* Aumentado */
+    }
+    
+    .user-dropdown:hover .user-dropdown-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+    
+    .user-dropdown-item {
+        color: white;
+        padding: 1rem 1.5rem; /* Aumentado */
+    }
+    
+    .user-dropdown-item:hover {
+        color: var(--nucita-blush);
+        background: transparent;
+    }
+    
+    .user-dropdown-item i {
+        color: white;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-admin {
+        padding: 1rem;
+        height: 120px; /* Reducido para móviles */
+    }
+    
+    .navbar-admin-logo {
+        height: 50px;
+    }
+    
+    .navbar-admin-title {
+        font-size: 2rem;
+    }
+    
+    .navbar-admin-collapse {
+        top: 120px; /* Ajustado a la nueva altura */
+    }
+    
+    .navbar-admin-toggler {
+        font-size: 1.8rem;
+    }
+}
 </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
