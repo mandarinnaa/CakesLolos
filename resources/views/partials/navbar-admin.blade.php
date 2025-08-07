@@ -1,6 +1,5 @@
 @if(Auth::check() && (Auth::user()->role === 'admin' || Auth::user()->role === 'editor'))
 
-<nav class="navbar-admin">
 
 <style>
 
@@ -36,7 +35,7 @@ body {
     min-height: 100vh; /* Asegura que el body ocupe al menos toda la pantalla */
 }
 .main-content {
-    margin-top: 180px;
+    margin-top: 100px;
     padding: 20px;
 }
 
@@ -758,7 +757,8 @@ textarea.nucita-form-control {
 
 
 </style>
-    
+    <nav class="navbar-admin">
+
     <div class="navbar-admin-container">
         <div class="navbar-admin-brand">
             <a href="{{ route('admin.dashboard') }}">
