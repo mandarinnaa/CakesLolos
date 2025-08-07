@@ -1,12 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="animate__animated animate__fadeIn">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+<div class="main-content animate__animated animate__fadeIn">
+
     <div class="d-flex justify-content-between align-items-center mb-4">
         <a href="{{ route('admin.cakes.create') }}" class="nucita-btn nucita-btn-primary">
             <i class="fas fa-plus"></i> {{__("Create New Cake")}}

@@ -27,6 +27,18 @@
     --nucita-light: var(--nucita-blanco);
     --nucita-text: var(--texto-oscuro);
 }
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--nucita-blanco);
+    color: var(--texto-oscuro);
+    line-height: 1.6;
+    padding-top: 180px; /* Aumenta este valor */
+    min-height: 100vh; /* Asegura que el body ocupe al menos toda la pantalla */
+}
+.main-content {
+    margin-top: 180px;
+    padding: 20px;
+}
 
 .navbar-admin {
     background: linear-gradient(135deg, var(--nucita-rose), var(--nucita-berry));
@@ -383,13 +395,6 @@
     }
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--nucita-blanco);
-    color: var(--texto-oscuro);
-    line-height: 1.6;
-     padding-top: 150px;
-}
 
 @keyframes float {
     0%, 100% { transform: translateY(0); }

@@ -1,12 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="animate__animated animate__fadeIn">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+<div class="main-content animate__animated animate__fadeIn">
+
     <div class="nucita-card animate__animated animate__fadeInUp">
         <div class="table-responsive">
             <table class="nucita-table">

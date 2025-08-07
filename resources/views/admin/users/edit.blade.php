@@ -1,12 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="animate__animated animate__fadeIn">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+<div class="main-content animate__animated animate__fadeIn">
+
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
             <h1 style="color: var(--nucita-accent); font-family: 'Cookie', cursive; font-size: 2.5rem;">Editar Usuario</h1>
