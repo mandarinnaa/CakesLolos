@@ -211,7 +211,10 @@
     font-size: 0.9rem;
     transition: all 0.3s ease;
 }
-
+.main-content {
+    margin-top: 50px;
+    padding: 20px;
+}
 .user-dropdown:hover .user-dropdown-toggle i:last-child {
     transform: rotate(180deg);
 }
