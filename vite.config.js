@@ -5,6 +5,7 @@ export default defineConfig({
     base: '/build/', // ¡Clave para producción!
     plugins: [
         laravel({
+            base: '/build/', 
             input: [
                 'resources/css/app.css',
                 'resources/css/admin.css',
