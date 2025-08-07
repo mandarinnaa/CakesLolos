@@ -1,14 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+  <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
 <div class="animate__animated animate__fadeIn">
-    
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <h1 class="mb-4" style="color: var(--nucita-accent); font-family: 'Cookie', cursive; font-size: 3rem;">Bienvenido, Administrador</h1>
 
     <div class="row">
