@@ -388,6 +388,7 @@ body {
     background-color: var(--nucita-blanco);
     color: var(--texto-oscuro);
     line-height: 1.6;
+     padding-top: 150px;
 }
 
 @keyframes float {
