@@ -171,6 +171,96 @@
     align-items: center;
 }
 
+.user-dropdown {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.user-dropdown-toggle {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    height: 100%;
+}
+
+.user-dropdown-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.user-dropdown-toggle i:first-child {
+    margin-right: 8px;
+    font-size: 1.3rem;
+    transition: transform 0.5s ease;
+}
+
+.user-dropdown-toggle i:last-child {
+    margin-left: 6px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.user-dropdown:hover .user-dropdown-toggle i:last-child {
+    transform: rotate(180deg);
+}
+
+.user-dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(166, 45, 84, 0.15);
+    min-width: 200px;
+    padding: 0.5rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    border: 1px solid var(--nucita-blush);
+}
+
+.user-dropdown:hover .user-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.user-dropdown-item {
+    color: var(--nucita-text);
+    text-decoration: none;
+    padding: 0.7rem 1.5rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.user-dropdown-item i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+    color: var(--nucita-berry);
+}
+
+.user-dropdown-item:hover {
+    background-color: var(--nucita-cream);
+    color: var(--nucita-berry);
+    padding-left: 1.7rem;
+}
+
+@keyframes wave {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
 .navbar-admin-nav .nav-link:hover {
     animation: wave 0.6s ease;
 }
