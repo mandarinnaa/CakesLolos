@@ -1,0 +1,22 @@
+{
+  "resources/css/admin.css": {
+    "file": "assets/css/admin.0314e31a.css",
+    "isEntry": true,
+    "src": "resources/css/admin.css"
+  },
+  "resources/css/app.css": {
+    "file": "assets/css/app.47f9b816.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/css/editor.css": {
+    "file": "assets/css/editor.da1aee92.css",
+    "isEntry": true,
+    "src": "resources/css/editor.css"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-e33f6074.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}

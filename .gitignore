@@ -1,33 +1,16 @@
-# Directorios ignorados comúnmente en Laravel
 /node_modules
-/public/build
 /public/hot
-/public/storage
 /storage/*.key
 /vendor
-
-# Archivos sensibles y de configuración local
 .env
-.env.*
+.env.backup
+.env.production
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
 auth.json
-
-# Logs y errores
 npm-debug.log
 yarn-error.log
-*.log
-
-# IDEs y herramientas locales
+/.fleet
 /.idea
 /.vscode
-/.fleet
-
-# Archivos del sistema
-.DS_Store
-Thumbs.db
-
-# Otros
-*.sqlite
-*.sqlite3
