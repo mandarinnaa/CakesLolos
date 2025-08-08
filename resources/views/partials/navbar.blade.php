@@ -1,5 +1,11 @@
 @if(Auth::check() && (Auth::user()->role === 'admin' || Auth::user()->role === 'editor'))
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
         body {
     font-family: 'Poppins', sans-serif;
@@ -1386,7 +1392,8 @@ h1, h2, h3, h4, h5, h6 {
         }
     </style>
 </head>
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+<body>
+       <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="{{ asset('images/Log.png') }}" alt="Logo Lolo's Cake">
@@ -1449,4 +1456,6 @@ h1, h2, h3, h4, h5, h6 {
             </div>
         </div>
     </nav>
-@endif
+</body>
+</html>
+ @endif
