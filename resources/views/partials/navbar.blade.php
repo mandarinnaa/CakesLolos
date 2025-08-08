@@ -953,65 +953,6 @@ h1, h2, h3, h4, h5, h6 {
             transition: all 0.3s ease;
         }
 
-        .navbar {
-            background-color: var(--nucita-cafe);
-            padding: 1.2rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: var(--sombra-suave);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-            font-family: 'Pacifico', cursive;
-            font-size: 1.8rem;
-            color: var(--nucita-blanco);
-            transition: transform 0.3s ease;
-        }
-
-        .navbar-brand:hover {
-            transform: scale(1.05);
-        }
-
-        .navbar-brand img {
-            width: 50px;
-            height: 50px;
-        }
-
-        .navbar-nav {
-            display: flex;
-            gap: 1.5rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-link {
-            color: var(--nucita-blanco);
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .nav-link:hover {
-            background-color: var(--nucita-cafe-oscuro);
-            color: var(--nucita-amarillo);
-            transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-link i {
-            font-size: 1.1rem;
-        }
 
         .swiper-container {
             width: 100%;
