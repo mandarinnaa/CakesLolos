@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 
 <div class="cereza-container-cakes">
     <br>
