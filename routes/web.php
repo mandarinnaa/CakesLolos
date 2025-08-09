@@ -91,8 +91,7 @@ Route::middleware(['auth', 'checkrole:admin'])->group(function () {
 Route::middleware(['auth', 'user'])->group(function () {
     // Pasteles y carrito
     Route::get('/user/cakes', [CakeUserController::class, 'index'])->name('user.cakes.index');
-    Route::post('/user/cakes/add-to-cart/{id}', [CakeUserController::class, 'addToCart'])->name('addToCart');
-    Route::post('/recetas/{receta}/comentarios', [UserController::class, 'storeComentario'])->name('comentarios.store');
+    Route::post('/user/cakes/add-to-cart/{id}', [CakeUserController::class, 'addToCart'])->name('user.cart.add');    Route::post('/recetas/{receta}/comentarios', [UserController::class, 'storeComentario'])->name('comentarios.store');
     // Carrito de compras
     Route::prefix('/user/cart')->group(function () {
         Route::get('/', [CartController::class, 'index'])->name('user.cart.index');

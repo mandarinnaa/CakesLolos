@@ -16,12 +16,12 @@
                     <p class="cereza-card-text">{{ $cake->description }}</p>
                     <p class="cereza-card-text"><i class="fas fa-box"></i> <strong>Disponibles:</strong> {{ $cake->stock }}</p>
                     <p class="cereza-card-text"><i class="fas fa-tag"></i> <strong>Precio:</strong> ${{ number_format($cake->price, 2) }}</p>
-                    <form action="{{ route('user.cart.add', $cake->id) }}" method="POST" class="add-to-cart-form">
-                        @csrf
-                        <button type="submit" class="cereza-btn-custom">
-                            <i class="fas fa-cart-plus"></i> Agregar al carrito
-                        </button>
-                    </form>
+<form action="{{ route('user.cart.add', $cake->id) }}" method="POST" class="add-to-cart-form">
+    @csrf
+    <button type="submit" class="cereza-btn-custom">
+        <i class="fas fa-cart-plus"></i> Agregar al carrito
+    </button>
+</form>
                 </div>
             </div>
         </div>
