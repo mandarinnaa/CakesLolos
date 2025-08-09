@@ -74,16 +74,6 @@
             filter: drop-shadow(0 2px 4px rgba(166, 45, 84, 0.2));
         }
 
-        .navbar-admin-title {
-            color: white;
-            font-family: 'Cookie', cursive;
-            font-size: 1.8rem;
-            font-weight: 400;
-            text-decoration: none;
-            text-shadow: 1px 1px 3px rgba(166, 45, 84, 0.3);
-            transition: all 0.3s ease;
-        }
-
         .navbar-admin-toggler {
             display: none;
             background: none;
@@ -767,7 +757,6 @@
         <div class="navbar-admin-container">
             <a class="navbar-admin-brand" href="{{ route('admin.dashboard') }}">
                 <img src="{{ asset('images/Log.png') }}" alt="Logo Lolo's Cake" class="navbar-admin-logo">
-                <span class="navbar-admin-title">Lolo's Cake Admin</span>
             <button class="navbar-admin-toggler" type="button" id="navbarAdminToggle">
                 <i class="fas fa-bars"></i>
             </button>
