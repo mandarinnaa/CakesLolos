@@ -765,10 +765,9 @@
         <div class="main-content">
     <nav class="navbar-admin">
         <div class="navbar-admin-container">
-               <a class="navbar-brand" href="#">
-                <img src="{{ asset('images/Log.png') }}" alt="Logo Lolo's Cake">
-                Lolo's Cake
-            </a>
+            <a class="navbar-admin-brand" href="{{ route('admin.dashboard') }}">
+                <img src="{{ asset('images/Log.png') }}" alt="Logo Lolo's Cake" class="navbar-admin-logo">
+                <span class="navbar-admin-title">Lolo's Cake Admin</span>
             <button class="navbar-admin-toggler" type="button" id="navbarAdminToggle">
                 <i class="fas fa-bars"></i>
             </button>
