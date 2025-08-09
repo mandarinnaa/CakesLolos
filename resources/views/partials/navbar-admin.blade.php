@@ -762,6 +762,7 @@
     </style>
 </head>
 <body>
+        <div class="main-content">
     <nav class="navbar-admin">
         <div class="navbar-admin-container">
             <button class="navbar-admin-toggler" type="button" id="navbarAdminToggle">
@@ -828,8 +829,7 @@
         </div>
     </nav>
 
-    <div class="main-content">
-        @yield('content')
+
     </div>
 
     <script>
