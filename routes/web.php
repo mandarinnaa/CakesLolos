@@ -86,10 +86,14 @@ Route::middleware(['auth', 'checkrole:admin'])->group(function () {
         Route::delete('/{receta}', [RecetaController::class, 'destroy'])->name('admin.recetas.destroy');
     });
 });
+Route::get('/user/cakes', [CakeUserController::class, 'index'])
+    ->name('user.cakes.index')
+    ->middleware(['auth', 'user']);
 
 // Rutas protegidas para usuarios autenticados
 Route::middleware(['auth', 'user'])->group(function () {
     // Pasteles y carrito
+    
     Route::get('/user/cakes', [CakeUserController::class, 'index'])->name('user.cakes.index');
     Route::post('/user/cakes/add-to-cart/{id}', [CakeUserController::class, 'addToCart'])->name('user.cart.add');    Route::post('/recetas/{receta}/comentarios', [UserController::class, 'storeComentario'])->name('comentarios.store');
     // Carrito de compras

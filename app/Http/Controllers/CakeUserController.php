@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 
 class CakeUserController extends Controller
 {
-    public function index()
-    {
-        $cakes = Cake::all(); 
-        return view('user.cakes.index', compact('cakes')); 
-    }
+ public function index()
+{
+    $cakes = Cake::all();
+    return view('user.cakes.index', compact('cakes'));
+}
 
  public function addToCart(Request $request, $id)
 {
