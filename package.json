@@ -9,10 +9,8 @@
         "axios": "^1.1.2"
     },
     "devDependencies": {
-        "laravel-vite-plugin": "^0.7.8",
         "lodash": "^4.17.19",
-        "postcss": "^8.1.14",
-        "vite": "^4.5.14"
+        "postcss": "^8.1.14"
     },
     "name": "cake_lolos",
     "version": "1.0.0",
