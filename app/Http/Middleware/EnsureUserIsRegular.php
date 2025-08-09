@@ -8,12 +8,23 @@ use Illuminate\Support\Facades\Auth;
 
 class EnsureUserIsRegular
 {
+    /**
+     * Handle an incoming request.
+     */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->role === 'user') {
-            return $next($request); 
+        // Si no está autenticado, redirige al login
+        if (!Auth::check()) {
+            return redirect()->route('login');
         }
 
-        return redirect('/')->with('error', 'No tienes permiso para acceder a esta página.');
+        $user = Auth::user();
+
+        // Evita que falle si role es null
+        if (!isset($user->role) || $user->role !== 'user') {
+            abort(403, 'No tienes permiso para acceder a esta página.');
+        }
+
+        return $next($request);
     }
 }
