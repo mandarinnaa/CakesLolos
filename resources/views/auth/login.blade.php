@@ -295,15 +295,6 @@
                     <p>¿Olvidaste tu contraseña? <a href="{{ route('password.request') }}" class="text-decoration-none">Recupérala aquí</a></p>
                 </div>
 
-                <div class="mt-3 text-center">
-                    <a href="{{ route('login.google') }}" class="btn btn-danger mb-2 mr-2">
-                        <i class="fab fa-google"></i> Google
-                    </a>
-                    <a href="{{ route('login.github') }}" class="btn btn-dark mb-2">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
-                </div>
-
             </div>
         </div>
     </div>
