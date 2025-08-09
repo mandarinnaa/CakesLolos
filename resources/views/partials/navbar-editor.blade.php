@@ -63,15 +63,6 @@
     filter: drop-shadow(0 2px 4px rgba(166, 45, 84, 0.2));
 }
 
-.navbar-admin-title {
-    color: white;
-    font-family: 'Cookie', cursive;
-    font-size: 1.8rem;
-    font-weight: 400;
-    text-decoration: none;
-    text-shadow: 1px 1px 3px rgba(166, 45, 84, 0.3);
-    transition: all 0.3s ease;
-}
 
 .navbar-admin-toggler {
     display: none;
@@ -701,7 +692,6 @@ body {
         <div class="navbar-admin-brand">
             <a href="{{ route('editor.dashboard') }}">
                 <img src="{{ asset('images/Log.png') }}" alt="Logo Lolo's Cake" class="navbar-admin-logo">
-                <span class="navbar-admin-title">Lolo's Cake Editor</span>
             </a>
         </div>
         

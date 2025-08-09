@@ -88,7 +88,7 @@ Route::middleware(['auth', 'checkrole:admin'])->group(function () {
 });
 
 // Rutas protegidas para usuarios autenticados
-Route::middleware(['auth', 'checkrole:user'])->group(function () {
+Route::middleware(['auth', 'user'])->group(function () {
     // Pasteles y carrito
     Route::get('/user/cakes', [CakeUserController::class, 'index'])->name('user.cakes.index');
     Route::post('/user/cakes/add-to-cart/{id}', [CakeUserController::class, 'addToCart'])->name('addToCart');

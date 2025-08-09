@@ -59,12 +59,11 @@ class AuthController extends Controller
             $request->session()->regenerate();
 
 
-            return redirect(match (Auth::user()->role) {
-                'admin' => '/admin/dashboard',
-                'editor' => '/editor/dashboard',
-                'user' => '/user/cakes',
-                default => '/',
-            });
+        return match(Auth::user()->role) {
+            'admin' => redirect()->route('admin.dashboard'),
+            'editor' => redirect()->route('editor.dashboard'),
+            default => redirect()->route('user.cakes.index')
+        };
         }
 
         return back()->withErrors([
