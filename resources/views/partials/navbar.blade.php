@@ -1,4 +1,5 @@
-@if(Auth::check() && (Auth::user()->role === 'admin' || Auth::user()->role === 'editor'))
+@if(Auth::check() && in_array(Auth::user()->role, ['admin', 'editor', 'user']))
+
 <head>
     <style>
         body {
