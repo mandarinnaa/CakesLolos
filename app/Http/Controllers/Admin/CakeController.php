@@ -31,7 +31,12 @@ class CakeController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $imagePath = $request->file('image')->store('cakes', 'public');
+         if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('cakes'), $filename);
+            $imagePath = 'cakes/' . $filename;
+        }
 
         Cake::create([
             'name' => $request->name,
@@ -54,13 +59,18 @@ class CakeController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        if ($request->hasFile('image')) {
-            if ($cake->image) {
-                Storage::disk('public')->delete($cake->image);
+             if ($request->hasFile('image')) {
+            // Elimina la imagen antigua en public/cakes
+            if ($cake->image && file_exists(public_path($cake->image))) {
+                unlink(public_path($cake->image));
             }
-            $imagePath = $request->file('image')->store('cakes', 'public');
-            $cake->image = $imagePath;
+
+            $file = $request->file('image');
+            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('cakes'), $filename);
+            $cake->image = 'cakes/' . $filename;
         }
+
 
         $cake->update([
             'name' => $request->name,

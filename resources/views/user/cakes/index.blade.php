@@ -10,7 +10,7 @@
         @foreach($cakes as $cake)
         <div class="col-md-4 mb-4">
             <div class="cereza-card-hover">
-                <img src="{{ asset('storage/' . $cake->image) }}" class="cereza-card-img-top" alt="{{ $cake->name }}">
+<img src="{{ asset($cake->image) }}" class="cereza-card-img-top" alt="{{ $cake->name }}">
                 <div class="cereza-card-body">
                     <h5 class="cereza-card-title"><i class="fas fa-cake"></i> {{ $cake->name }}</h5>
                     <p class="cereza-card-text">{{ $cake->description }}</p>
