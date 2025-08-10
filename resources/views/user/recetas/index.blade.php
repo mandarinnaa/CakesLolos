@@ -13,7 +13,7 @@
         @foreach($recetas as $receta)
         <div class="recipe-card">
             <div class="recipe-image-container">
-                <img src="{{ asset('storage/' . $receta->imagen) }}" alt="{{ $receta->nombre }}">
+<img src="{{ asset($receta->imagen) }}" alt="{{ $receta->nombre }}">
             </div>
             <h3>{{ $receta->nombre }}</h3>
             <p>{{ $receta->descripcion }}</p>

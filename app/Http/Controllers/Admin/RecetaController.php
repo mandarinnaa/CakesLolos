@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Receta;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class RecetaController extends Controller
 {
@@ -31,14 +30,18 @@ class RecetaController extends Controller
             'dificultad' => 'required|string',
             'ingredientes' => 'required|string',
             'instrucciones' => 'required|string',
-            'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validación para la imagen
+            'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $ingredientesArray = $this->parseIngredientes($request->ingredientes);
 
-        $imagenPath = $request->hasFile('imagen')
-            ? $request->file('imagen')->store('recetas', 'public')
-            : null;
+        $imagenPath = null;
+        if ($request->hasFile('imagen')) {
+            $file = $request->file('imagen');
+            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('recetas'), $filename);
+            $imagenPath = 'recetas/' . $filename;
+        }
 
         Receta::create([
             'nombre' => $request->nombre,
@@ -66,16 +69,21 @@ class RecetaController extends Controller
             'dificultad' => 'required|string',
             'ingredientes' => 'required|string',
             'instrucciones' => 'required|string',
-            'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validación para la imagen
+            'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $ingredientesArray = $this->parseIngredientes($request->ingredientes);
 
         if ($request->hasFile('imagen')) {
-            if ($receta->imagen) {
-                Storage::disk('public')->delete($receta->imagen);
+            // Borra la imagen anterior si existe
+            if ($receta->imagen && file_exists(public_path($receta->imagen))) {
+                unlink(public_path($receta->imagen));
             }
-            $imagenPath = $request->file('imagen')->store('recetas', 'public');
+
+            $file = $request->file('imagen');
+            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('recetas'), $filename);
+            $imagenPath = 'recetas/' . $filename;
         } else {
             $imagenPath = $receta->imagen;
         }
@@ -87,15 +95,15 @@ class RecetaController extends Controller
             'tiempo_coccion' => $request->tiempo_coccion,
             'porciones' => $request->porciones,
             'dificultad' => $request->dificultad,
-            'ingredientes' => json_encode($ingredientesArray),  
-          'instrucciones' => $request->instrucciones,
+            'ingredientes' => json_encode($ingredientesArray),
+            'instrucciones' => $request->instrucciones,
             'imagen' => $imagenPath,
         ]);
 
         return redirect()->route('admin.recetas.index')->with('success', 'Receta actualizada exitosamente.');
     }
 
-     protected function parseIngredientes($ingredientesText)
+    protected function parseIngredientes($ingredientesText)
     {
         $lineas = explode("\n", $ingredientesText);
         $ingredientes = [];
@@ -114,23 +122,24 @@ class RecetaController extends Controller
         return $ingredientes;
     }
 
-     public function edit(Receta $receta)
+    public function edit(Receta $receta)
     {
         return view('admin.recetas.edit', compact('receta'));
     }
 
     public function destroy(Receta $receta)
     {
-        
         if ($receta->comentarios()->count() > 0 || $receta->calificaciones()->count() > 0) {
             return redirect()->back()
                 ->with('error', 'No se puede eliminar la receta porque tiene comentarios o calificaciones asociadas.');
         }
 
-        if ($receta->imagen) {
-            Storage::disk('public')->delete($receta->imagen);
+        if ($receta->imagen && file_exists(public_path($receta->imagen))) {
+            unlink(public_path($receta->imagen));
         }
+        
         $receta->delete();
+
         return redirect()->route('admin.recetas.index')->with('success', 'Receta eliminada exitosamente.');
     }
 }

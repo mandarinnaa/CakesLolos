@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Cake;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class CakeController extends Controller
 {
@@ -31,11 +30,19 @@ class CakeController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-         if ($request->hasFile('image')) {
+        if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = uniqid() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('cakes'), $filename);
+
+            $destinationPath = public_path('cakes');
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+
+            $file->move($destinationPath, $filename);
             $imagePath = 'cakes/' . $filename;
+        } else {
+            $imagePath = null;
         }
 
         Cake::create([
@@ -48,6 +55,7 @@ class CakeController extends Controller
 
         return redirect()->route('admin.cakes.index')->with('success', 'Pastel creado correctamente.');
     }
+
     public function update(Request $request, Cake $cake)
     {
         // Validación de los datos del formulario
@@ -59,24 +67,30 @@ class CakeController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-             if ($request->hasFile('image')) {
-            // Elimina la imagen antigua en public/cakes
+        if ($request->hasFile('image')) {
+            // Eliminar imagen antigua si existe
             if ($cake->image && file_exists(public_path($cake->image))) {
                 unlink(public_path($cake->image));
             }
 
             $file = $request->file('image');
             $filename = uniqid() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('cakes'), $filename);
+
+            $destinationPath = public_path('cakes');
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+
+            $file->move($destinationPath, $filename);
             $cake->image = 'cakes/' . $filename;
         }
-
 
         $cake->update([
             'name' => $request->name,
             'description' => $request->description,
             'price' => $request->price,
             'stock' => $request->stock,
+            'image' => $cake->image,
         ]);
 
         return redirect()->route('admin.cakes.index')->with('success', 'Pastel actualizado correctamente.');
@@ -87,19 +101,17 @@ class CakeController extends Controller
         return view('admin.cakes.edit', compact('cake'));
     }
 
-    
-
     public function destroy(Cake $cake)
     {
-        
         if ($cake->orders()->count() > 0) {
             return redirect()->back()
                 ->with('error', 'No se puede eliminar el pastel porque tiene órdenes asociadas.');
         }
 
-        if ($cake->image) {
-            Storage::disk('public')->delete($cake->image);
+        if ($cake->image && file_exists(public_path($cake->image))) {
+            unlink(public_path($cake->image));
         }
+
         $cake->delete();
 
         return redirect()->route('admin.cakes.index')->with('success', 'Pastel eliminado correctamente.');
