@@ -143,3 +143,4 @@ class RecetaController extends Controller
         return redirect()->route('admin.recetas.index')->with('success', 'Receta eliminada exitosamente.');
     }
 }
+
